@@ -1,11 +1,11 @@
-# Fit Finder — Maggie Glaize
+# Fit Finder — Maggie
 
 A consultation tool for finding storage bins that fit a measured space. Maggie measures a space at a client's house, enters the dimensions, and the app shows which bins from IKEA / Container Store / Target will fit — with a proportional diagram showing how many tile across and how they look from the side.
 
 ## Project context
 
-- **Who uses it:** Maggie Glaize (professional organizer), on her iPad during and after client consultations
-- **Built by:** Natalya, via Claude Code
+- **Who uses it:** Maggie (professional organizer), on her iPad during and after client consultations
+- **Built by:** crazyglaizy, via Claude Code
 - **Design reference:** maggieglaizeorganize.com — warm cream palette, serif headings, minimal UI
 - **Status:** MVP complete, awaiting Maggie's feedback before next phase
 
