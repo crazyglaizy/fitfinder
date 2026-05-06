@@ -1,26 +1,26 @@
-name,store,category,width,depth,height,unit,price,material,url
-SKUBB box set of 6,IKEA,Fabric box,6.25,17,2.5,in,$9.99,Fabric,https://www.ikea.com/us/en/p/skubb-box-set-of-6-white-00263254/
-KUGGIS box 13x18,IKEA,Plastic box,13,18,3.5,in,$7.99,Plastic,https://www.ikea.com/us/en/p/kuggis-box-with-lid-white-20517759/
-KUGGIS box 6x9,IKEA,Plastic box,5.75,9,3.5,in,$3.99,Plastic,https://www.ikea.com/us/en/p/kuggis-box-with-lid-white-60517751/
-KUGGIS box 9x13,IKEA,Plastic box,9,13,3.5,in,$4.99,Plastic,https://www.ikea.com/us/en/p/kuggis-box-white-90517753/
-DRONA box,IKEA,Fabric box,13,15,12,in,$6.99,Fabric,https://www.ikea.com/us/en/p/drona-box-gray-20331099/
-TJENA box with lid,IKEA,Cardboard box,9,15,9.5,in,$9.99,Cardboard,https://www.ikea.com/us/en/p/tjena-box-with-lid-white-00348080/
-SKUBB box large,IKEA,Fabric box,17,22,11.5,in,$12.99,Fabric,https://www.ikea.com/us/en/p/skubb-box-white-30263249/
-SOCKERBIT box with lid,IKEA,Plastic box,9.75,13.75,9.75,in,$12.99,Plastic,https://www.ikea.com/us/en/p/sockerbit-box-with-lid-white-00290645/
-KALLAX insert with door,IKEA,Insert,13,15,13,in,$20.00,Wood,https://www.ikea.com/us/en/p/kallax-insert-with-door-white-90278172/
-Linus drawer organizer small,The Container Store,Drawer organizer,6,19.5,3.5,in,$12.99,Plastic,https://www.containerstore.com/s/linus-drawer-organizer/d?productId=11005130
-Linus drawer organizer large,The Container Store,Drawer organizer,12,19.5,3.5,in,$17.99,Plastic,https://www.containerstore.com/s/linus-drawer-organizer/d?productId=11005131
-Divided bamboo drawer organizer,The Container Store,Drawer organizer,17.5,19.5,3,in,$34.99,Bamboo,https://www.containerstore.com/s/bamboo-drawer-organizer/d
-Everything organizer small,The Container Store,Bin,5.5,8,5.5,in,$9.99,Plastic,https://www.containerstore.com/s/everything-organizer/d?productId=10066756
-Everything organizer large,The Container Store,Bin,11,8,5.5,in,$14.99,Plastic,https://www.containerstore.com/s/everything-organizer/d?productId=10066757
-Natural canvas bin small,The Container Store,Fabric bin,10,10,8,in,$19.99,Canvas,https://www.containerstore.com/s/natural-canvas-bin/d
-Natural canvas bin large,The Container Store,Fabric bin,16,12,12,in,$29.99,Canvas,https://www.containerstore.com/s/natural-canvas-bin/d
-Stack+Fit large bin,The Container Store,Bin,14,11,8,in,$24.99,Plastic,https://www.containerstore.com/s/stack-fit-bin/d
-Stack+Fit small bin,The Container Store,Bin,7,11,8,in,$14.99,Plastic,https://www.containerstore.com/s/stack-fit-bin/d
-Brightroom narrow bin,Target,Bin,4,8,4,in,$4.00,Plastic,https://www.target.com/p/narrow-plastic-organizer-bin-brightroom/-/A-86757565
-Brightroom small bin,Target,Bin,6,8,4.5,in,$5.00,Plastic,https://www.target.com/p/small-plastic-organizer-bin-brightroom/-/A-86757566
-Brightroom medium bin,Target,Bin,8,11,5,in,$7.00,Plastic,https://www.target.com/p/medium-plastic-organizer-bin-brightroom/-/A-86757567
-Brightroom large bin,Target,Bin,11,15,6,in,$10.00,Plastic,https://www.target.com/p/large-plastic-organizer-bin-brightroom/-/A-86757568
-Brightroom XL bin,Target,Bin,15,20,8,in,$14.00,Plastic,https://www.target.com/p/xl-plastic-organizer-bin-brightroom/-/A-86757569
-Brightroom fabric cube,Target,Fabric bin,13,15,13,in,$8.00,Fabric,https://www.target.com/p/fabric-cube-storage-bin-brightroom/-/A-83684924
-Brightroom drawer divider set,Target,Drawer organizer,6,12,2.5,in,$9.00,Plastic,https://www.target.com/p/drawer-divider-set-brightroom/-/A-86757570
+name,store,category,width,depth,height,unit,price,material,soldAs,url
+SKUBB box set of 6,IKEA,Fabric box,6.25,17,2.5,in,$9.99,Fabric,6,https://www.ikea.com/us/en/p/skubb-box-set-of-6-white-00263254/
+KUGGIS box 13x18,IKEA,Plastic box,13,18,3.5,in,$7.99,Plastic,,https://www.ikea.com/us/en/p/kuggis-box-with-lid-white-20517759/
+KUGGIS box 6x9,IKEA,Plastic box,5.75,9,3.5,in,$3.99,Plastic,,https://www.ikea.com/us/en/p/kuggis-box-with-lid-white-60517751/
+KUGGIS box 9x13,IKEA,Plastic box,9,13,3.5,in,$4.99,Plastic,,https://www.ikea.com/us/en/p/kuggis-box-white-90517753/
+DRONA box,IKEA,Fabric box,13,15,12,in,$6.99,Fabric,,https://www.ikea.com/us/en/p/drona-box-gray-20331099/
+TJENA box with lid,IKEA,Cardboard box,9,15,9.5,in,$9.99,Cardboard,,https://www.ikea.com/us/en/p/tjena-box-with-lid-white-00348080/
+SKUBB box large,IKEA,Fabric box,17,22,11.5,in,$12.99,Fabric,,https://www.ikea.com/us/en/p/skubb-box-white-30263249/
+SOCKERBIT box with lid,IKEA,Plastic box,9.75,13.75,9.75,in,$12.99,Plastic,,https://www.ikea.com/us/en/p/sockerbit-box-with-lid-white-00290645/
+KALLAX insert with door,IKEA,Insert,13,15,13,in,$20.00,Wood,,https://www.ikea.com/us/en/p/kallax-insert-with-door-white-90278172/
+Linus drawer organizer small,Container Store,Drawer organizer,6,19.5,3.5,in,$12.99,Plastic,,https://www.containerstore.com/s/linus-drawer-organizer/d?productId=11005130
+Linus drawer organizer large,Container Store,Drawer organizer,12,19.5,3.5,in,$17.99,Plastic,,https://www.containerstore.com/s/linus-drawer-organizer/d?productId=11005131
+Divided bamboo drawer organizer,Container Store,Drawer organizer,17.5,19.5,3,in,$34.99,Bamboo,,https://www.containerstore.com/s/bamboo-drawer-organizer/d
+Everything organizer small,Container Store,Bin,5.5,8,5.5,in,$9.99,Plastic,,https://www.containerstore.com/s/everything-organizer/d?productId=10066756
+Everything organizer large,Container Store,Bin,11,8,5.5,in,$14.99,Plastic,,https://www.containerstore.com/s/everything-organizer/d?productId=10066757
+Natural canvas bin small,Container Store,Fabric bin,10,10,8,in,$19.99,Canvas,,https://www.containerstore.com/s/natural-canvas-bin/d
+Natural canvas bin large,Container Store,Fabric bin,16,12,12,in,$29.99,Canvas,,https://www.containerstore.com/s/natural-canvas-bin/d
+Stack+Fit large bin,Container Store,Bin,14,11,8,in,$24.99,Plastic,,https://www.containerstore.com/s/stack-fit-bin/d
+Stack+Fit small bin,Container Store,Bin,7,11,8,in,$14.99,Plastic,,https://www.containerstore.com/s/stack-fit-bin/d
+Brightroom narrow bin,Target,Bin,4,8,4,in,$4.00,Plastic,,https://www.target.com/p/narrow-plastic-organizer-bin-brightroom/-/A-86757565
+Brightroom small bin,Target,Bin,6,8,4.5,in,$5.00,Plastic,,https://www.target.com/p/small-plastic-organizer-bin-brightroom/-/A-86757566
+Brightroom medium bin,Target,Bin,8,11,5,in,$7.00,Plastic,,https://www.target.com/p/medium-plastic-organizer-bin-brightroom/-/A-86757567
+Brightroom large bin,Target,Bin,11,15,6,in,$10.00,Plastic,,https://www.target.com/p/large-plastic-organizer-bin-brightroom/-/A-86757568
+Brightroom XL bin,Target,Bin,15,20,8,in,$14.00,Plastic,,https://www.target.com/p/xl-plastic-organizer-bin-brightroom/-/A-86757569
+Brightroom fabric cube,Target,Fabric bin,13,15,13,in,$8.00,Fabric,,https://www.target.com/p/fabric-cube-storage-bin-brightroom/-/A-83684924
+Brightroom drawer divider set,Target,Drawer organizer,6,12,2.5,in,$9.00,Plastic,,https://www.target.com/p/drawer-divider-set-brightroom/-/A-86757570

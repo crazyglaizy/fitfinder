@@ -45,7 +45,6 @@ input{font-family:var(--sans);touch-action:manipulation}
 .intro p{font-size:13px;color:var(--text-2);font-weight:300;line-height:1.7}
 .divider{border:none;border-top:.5px solid var(--border);margin:0 0 24px}
 
-
 /* SPACE GRID */
 .sgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:28px}
 @media(max-width:540px){.sgrid{grid-template-columns:repeat(2,1fr)}}
@@ -101,9 +100,6 @@ input{font-family:var(--sans);touch-action:manipulation}
 .cdims{font-size:11px;color:var(--text-3);margin-bottom:10px;letter-spacing:.03em}
 .ctags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
 .tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:2px}
-.tikea{background:#E8EDF5;color:#3A5278}
-.tcs{background:var(--taupe-light);color:#7A6550}
-.ttgt{background:#F5E8E8;color:#7A3A3A}
 .tperf{background:var(--sage-light);color:var(--sage)}
 .tgood{background:var(--taupe-light);color:#8A7055}
 .tmat{background:var(--cream);color:var(--text-3);border:.5px solid var(--border)}
@@ -112,6 +108,7 @@ input{font-family:var(--sans);touch-action:manipulation}
 .cnote strong{color:var(--text);font-weight:400}
 .clink{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);text-decoration:none;display:inline-block;margin-top:8px;border-bottom:.5px solid var(--sage-mid);padding-bottom:1px}
 .nores{text-align:center;padding:56px 20px;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--text-3)}
+.loading{text-align:center;padding:60px 20px;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--text-3)}
 .cviz-scroll{width:100%;display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch}
 .cviz-scroll::-webkit-scrollbar{display:none}
 .cviz-panel{flex-shrink:0;width:100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center}
@@ -137,73 +134,74 @@ input{font-family:var(--sans);touch-action:manipulation}
 
   <!-- SCREEN 1 -->
   <div class="screen active" id="sc1">
-    <div class="intro">
-      <h2>What are we organizing?</h2>
-      <p>Select your space, enter the dimensions, and we'll find bins that fit.</p>
-    </div>
+    <div id="loading" class="loading">Loading products…</div>
+    <div id="sc1-content" style="display:none">
 
-    <div class="slabel">Space type</div>
-    <div class="sgrid">
-      <button class="stile sel" data-space="Drawer" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="7" width="32" height="16" rx="2" stroke="#7A8B7F" stroke-width="1.2"/><line x1="1" y1="12" x2="33" y2="12" stroke="#7A8B7F" stroke-width=".8"/><circle cx="17" cy="9.5" r="1.2" fill="#7A8B7F"/></svg>
-        <div class="stile-name">Drawer</div>
-      </button>
-      <button class="stile" data-space="Shelf" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="1" width="32" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="1" y1="9" x2="33" y2="9" stroke="#ADA9A3" stroke-width=".8"/><line x1="1" y1="16" x2="33" y2="16" stroke="#ADA9A3" stroke-width=".8"/></svg>
-        <div class="stile-name">Shelf</div>
-      </button>
-      <button class="stile" data-space="Cabinet" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="3" y="1" width="28" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="17" y1="1" x2="17" y2="23" stroke="#ADA9A3" stroke-width=".8"/><circle cx="14.5" cy="12" r="1.2" fill="#ADA9A3"/><circle cx="19.5" cy="12" r="1.2" fill="#ADA9A3"/></svg>
-        <div class="stile-name">Cabinet</div>
-      </button>
-      <button class="stile" data-space="Closet" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="5" y="1" width="24" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="5" y1="8" x2="29" y2="8" stroke="#ADA9A3" stroke-width=".8"/><line x1="5" y1="16" x2="29" y2="16" stroke="#ADA9A3" stroke-width=".8"/></svg>
-        <div class="stile-name">Closet</div>
-      </button>
-      <button class="stile" data-space="Pantry" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="2" y="2" width="30" height="21" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="2" y1="9" x2="32" y2="9" stroke="#ADA9A3" stroke-width=".8"/><line x1="2" y1="16" x2="32" y2="16" stroke="#ADA9A3" stroke-width=".8"/></svg>
-        <div class="stile-name">Pantry</div>
-      </button>
-      <button class="stile" data-space="Under bed" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="13" width="32" height="10" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="6" y1="13" x2="6" y2="23" stroke="#ADA9A3" stroke-width=".8"/><line x1="28" y1="13" x2="28" y2="23" stroke="#ADA9A3" stroke-width=".8"/><rect x="1" y="7" width="32" height="6" rx="1.5" stroke="#ADA9A3" stroke-width="1.2"/></svg>
-        <div class="stile-name">Under bed</div>
-      </button>
-      <button class="stile" data-space="Desk" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="12" width="32" height="11" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><rect x="9" y="3" width="16" height="9" rx="2" stroke="#ADA9A3" stroke-width="1.2"/></svg>
-        <div class="stile-name">Desk area</div>
-      </button>
-      <button class="stile" data-space="Custom" onclick="pickSpace(this)">
-        <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="1" width="32" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2" stroke-dasharray="4 2"/><line x1="17" y1="7" x2="17" y2="17" stroke="#ADA9A3" stroke-width="1.2"/><line x1="12" y1="12" x2="22" y2="12" stroke="#ADA9A3" stroke-width="1.2"/></svg>
-        <div class="stile-name">Custom</div>
-      </button>
-    </div>
-
-    <hr class="divider">
-    <div class="slabel">Dimensions</div>
-    <div class="dcard">
-      <div class="drow">
-        <div class="dgrp"><label>Width</label><input type="text" id="dw" placeholder="18" inputmode="decimal" pattern="[0-9.]*" oninput="updatePreview()"></div>
-        <div class="dgrp"><label>Depth</label><input type="text" id="dd" placeholder="20" inputmode="decimal" pattern="[0-9.]*" oninput="updatePreview()"></div>
-        <div class="dgrp"><label>Height</label><input type="text" id="dh" placeholder="4" inputmode="decimal" pattern="[0-9.]*" oninput="updatePreview()"></div>
-        <div class="utog">
-          <button class="ubtn active" id="bin" onclick="setUnit('in')">in</button>
-          <button class="ubtn" id="bcm" onclick="setUnit('cm')">cm</button>
-        </div>
+      <div class="intro">
+        <h2>What are we organizing?</h2>
+        <p>Select your space, enter the dimensions, and we'll find bins that fit.</p>
       </div>
-      <div class="vprev"><svg id="psvg" width="300" height="80" viewBox="0 0 300 80"></svg></div>
-    </div>
 
-    <hr class="divider">
-    <div class="slabel">Stores</div>
-    <div class="srow">
-      <button class="sbtn active" data-store="IKEA" onclick="toggleStore(this)">IKEA</button>
-      <button class="sbtn active" data-store="The Container Store" onclick="toggleStore(this)">Container Store</button>
-      <button class="sbtn active" data-store="Target" onclick="toggleStore(this)">Target</button>
-    </div>
+      <div class="slabel">Space type</div>
+      <div class="sgrid">
+        <button class="stile sel" data-space="Drawer" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="7" width="32" height="16" rx="2" stroke="#7A8B7F" stroke-width="1.2"/><line x1="1" y1="12" x2="33" y2="12" stroke="#7A8B7F" stroke-width=".8"/><circle cx="17" cy="9.5" r="1.2" fill="#7A8B7F"/></svg>
+          <div class="stile-name">Drawer</div>
+        </button>
+        <button class="stile" data-space="Shelf" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="1" width="32" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="1" y1="9" x2="33" y2="9" stroke="#ADA9A3" stroke-width=".8"/><line x1="1" y1="16" x2="33" y2="16" stroke="#ADA9A3" stroke-width=".8"/></svg>
+          <div class="stile-name">Shelf</div>
+        </button>
+        <button class="stile" data-space="Cabinet" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="3" y="1" width="28" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="17" y1="1" x2="17" y2="23" stroke="#ADA9A3" stroke-width=".8"/><circle cx="14.5" cy="12" r="1.2" fill="#ADA9A3"/><circle cx="19.5" cy="12" r="1.2" fill="#ADA9A3"/></svg>
+          <div class="stile-name">Cabinet</div>
+        </button>
+        <button class="stile" data-space="Closet" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="5" y="1" width="24" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="5" y1="8" x2="29" y2="8" stroke="#ADA9A3" stroke-width=".8"/><line x1="5" y1="16" x2="29" y2="16" stroke="#ADA9A3" stroke-width=".8"/></svg>
+          <div class="stile-name">Closet</div>
+        </button>
+        <button class="stile" data-space="Pantry" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="2" y="2" width="30" height="21" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="2" y1="9" x2="32" y2="9" stroke="#ADA9A3" stroke-width=".8"/><line x1="2" y1="16" x2="32" y2="16" stroke="#ADA9A3" stroke-width=".8"/></svg>
+          <div class="stile-name">Pantry</div>
+        </button>
+        <button class="stile" data-space="Under bed" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="13" width="32" height="10" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><line x1="6" y1="13" x2="6" y2="23" stroke="#ADA9A3" stroke-width=".8"/><line x1="28" y1="13" x2="28" y2="23" stroke="#ADA9A3" stroke-width=".8"/><rect x="1" y="7" width="32" height="6" rx="1.5" stroke="#ADA9A3" stroke-width="1.2"/></svg>
+          <div class="stile-name">Under bed</div>
+        </button>
+        <button class="stile" data-space="Desk" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="12" width="32" height="11" rx="2" stroke="#ADA9A3" stroke-width="1.2"/><rect x="9" y="3" width="16" height="9" rx="2" stroke="#ADA9A3" stroke-width="1.2"/></svg>
+          <div class="stile-name">Desk area</div>
+        </button>
+        <button class="stile" data-space="Custom" onclick="pickSpace(this)">
+          <svg width="34" height="24" viewBox="0 0 34 24" fill="none"><rect x="1" y="1" width="32" height="22" rx="2" stroke="#ADA9A3" stroke-width="1.2" stroke-dasharray="4 2"/><line x1="17" y1="7" x2="17" y2="17" stroke="#ADA9A3" stroke-width="1.2"/><line x1="12" y1="12" x2="22" y2="12" stroke="#ADA9A3" stroke-width="1.2"/></svg>
+          <div class="stile-name">Custom</div>
+        </button>
+      </div>
 
-    <div class="cta">
-      <button class="bghost" onclick="clearAll()">Clear</button>
-      <button class="bprimary" onclick="findMatches()">Find bins that fit</button>
+      <hr class="divider">
+      <div class="slabel">Dimensions</div>
+      <div class="dcard">
+        <div class="drow">
+          <div class="dgrp"><label>Width</label><input type="text" id="dw" placeholder="18" inputmode="decimal" pattern="[0-9.]*" oninput="updatePreview()"></div>
+          <div class="dgrp"><label>Depth</label><input type="text" id="dd" placeholder="20" inputmode="decimal" pattern="[0-9.]*" oninput="updatePreview()"></div>
+          <div class="dgrp"><label>Height</label><input type="text" id="dh" placeholder="4" inputmode="decimal" pattern="[0-9.]*" oninput="updatePreview()"></div>
+          <div class="utog">
+            <button class="ubtn active" id="bin" onclick="setUnit('in')">in</button>
+            <button class="ubtn" id="bcm" onclick="setUnit('cm')">cm</button>
+          </div>
+        </div>
+        <div class="vprev"><svg id="psvg" width="300" height="80" viewBox="0 0 300 80"></svg></div>
+      </div>
+
+      <hr class="divider">
+      <div class="slabel">Stores</div>
+      <div class="srow" id="store-btns"></div>
+
+      <div class="cta">
+        <button class="bghost" onclick="clearAll()">Clear</button>
+        <button class="bprimary" onclick="findMatches()">Find bins that fit</button>
+      </div>
+
     </div>
   </div>
 
@@ -225,35 +223,70 @@ input{font-family:var(--sans);touch-action:manipulation}
 </div>
 
 <script>
-var products=[
-  {name:"SKUBB box, set of 6",store:"IKEA",width:6.25,depth:17,height:2.5,unit:"in",price:"$9.99",material:"Fabric",soldAs:6,url:"https://www.ikea.com/us/en/p/skubb-box-set-of-6-white-00263254/"},
-  {name:"KUGGIS box 13×18",store:"IKEA",width:13,depth:18,height:3.5,unit:"in",price:"$7.99",material:"Plastic",url:"https://www.ikea.com/us/en/p/kuggis-box-with-lid-white-20517759/"},
-  {name:"KUGGIS box 6×9",store:"IKEA",width:5.75,depth:9,height:3.5,unit:"in",price:"$3.99",material:"Plastic",url:"https://www.ikea.com/us/en/p/kuggis-box-with-lid-white-60517751/"},
-  {name:"KUGGIS box 9×13",store:"IKEA",width:9,depth:13,height:3.5,unit:"in",price:"$4.99",material:"Plastic",url:"https://www.ikea.com/us/en/p/kuggis-box-white-90517753/"},
-  {name:"DRONA box",store:"IKEA",width:13,depth:15,height:12,unit:"in",price:"$6.99",material:"Fabric",url:"https://www.ikea.com/us/en/p/drona-box-gray-20331099/"},
-  {name:"TJENA box with lid",store:"IKEA",width:9,depth:15,height:9.5,unit:"in",price:"$9.99",material:"Cardboard",url:"https://www.ikea.com/us/en/p/tjena-box-with-lid-white-00348080/"},
-  {name:"SKUBB box, large",store:"IKEA",width:17,depth:22,height:11.5,unit:"in",price:"$12.99",material:"Fabric",url:"https://www.ikea.com/us/en/p/skubb-box-white-30263249/"},
-  {name:"SOCKERBIT box with lid",store:"IKEA",width:9.75,depth:13.75,height:9.75,unit:"in",price:"$12.99",material:"Plastic",url:"https://www.ikea.com/us/en/p/sockerbit-box-with-lid-white-00290645/"},
-  {name:"KALLAX insert with door",store:"IKEA",width:13,depth:15,height:13,unit:"in",price:"$20.00",material:"Wood",url:"https://www.ikea.com/us/en/p/kallax-insert-with-door-white-90278172/"},
-  {name:"Linus drawer organizer, small",store:"The Container Store",width:6,depth:19.5,height:3.5,unit:"in",price:"$12.99",material:"Plastic",url:"https://www.containerstore.com/s/linus-drawer-organizer/d?productId=11005130"},
-  {name:"Linus drawer organizer, large",store:"The Container Store",width:12,depth:19.5,height:3.5,unit:"in",price:"$17.99",material:"Plastic",url:"https://www.containerstore.com/s/linus-drawer-organizer/d?productId=11005131"},
-  {name:"Divided bamboo drawer organizer",store:"The Container Store",width:17.5,depth:19.5,height:3,unit:"in",price:"$34.99",material:"Bamboo",url:"https://www.containerstore.com/s/bamboo-drawer-organizer/d"},
-  {name:"Everything organizer, small",store:"The Container Store",width:5.5,depth:8,height:5.5,unit:"in",price:"$9.99",material:"Plastic",url:"https://www.containerstore.com/s/everything-organizer/d?productId=10066756"},
-  {name:"Everything organizer, large",store:"The Container Store",width:11,depth:8,height:5.5,unit:"in",price:"$14.99",material:"Plastic",url:"https://www.containerstore.com/s/everything-organizer/d?productId=10066757"},
-  {name:"Natural canvas bin, small",store:"The Container Store",width:10,depth:10,height:8,unit:"in",price:"$19.99",material:"Canvas",url:"https://www.containerstore.com/s/natural-canvas-bin/d"},
-  {name:"Natural canvas bin, large",store:"The Container Store",width:16,depth:12,height:12,unit:"in",price:"$29.99",material:"Canvas",url:"https://www.containerstore.com/s/natural-canvas-bin/d"},
-  {name:"Stack+Fit large bin",store:"The Container Store",width:14,depth:11,height:8,unit:"in",price:"$24.99",material:"Plastic",url:"https://www.containerstore.com/s/stack-fit-bin/d"},
-  {name:"Stack+Fit small bin",store:"The Container Store",width:7,depth:11,height:8,unit:"in",price:"$14.99",material:"Plastic",url:"https://www.containerstore.com/s/stack-fit-bin/d"},
-  {name:"Brightroom narrow bin",store:"Target",width:4,depth:8,height:4,unit:"in",price:"$4.00",material:"Plastic",url:"https://www.target.com/p/narrow-plastic-organizer-bin-brightroom/-/A-86757565"},
-  {name:"Brightroom small bin",store:"Target",width:6,depth:8,height:4.5,unit:"in",price:"$5.00",material:"Plastic",url:"https://www.target.com/p/small-plastic-organizer-bin-brightroom/-/A-86757566"},
-  {name:"Brightroom medium bin",store:"Target",width:8,depth:11,height:5,unit:"in",price:"$7.00",material:"Plastic",url:"https://www.target.com/p/medium-plastic-organizer-bin-brightroom/-/A-86757567"},
-  {name:"Brightroom large bin",store:"Target",width:11,depth:15,height:6,unit:"in",price:"$10.00",material:"Plastic",url:"https://www.target.com/p/large-plastic-organizer-bin-brightroom/-/A-86757568"},
-  {name:"Brightroom XL bin",store:"Target",width:15,depth:20,height:8,unit:"in",price:"$14.00",material:"Plastic",url:"https://www.target.com/p/xl-plastic-organizer-bin-brightroom/-/A-86757569"},
-  {name:"Brightroom fabric cube",store:"Target",width:13,depth:15,height:13,unit:"in",price:"$8.00",material:"Fabric",url:"https://www.target.com/p/fabric-cube-storage-bin-brightroom/-/A-83684924"},
-  {name:"Brightroom drawer divider set",store:"Target",width:6,depth:12,height:2.5,unit:"in",price:"$9.00",material:"Plastic",url:"https://www.target.com/p/drawer-divider-set-brightroom/-/A-86757570"}
+// Store tag colours — auto-assigned in order of first appearance in the CSV
+var PALETTE=[
+  {bg:'#E8EDF5',cl:'#3A5278'},
+  {bg:'#F0EBE3',cl:'#7A6550'},
+  {bg:'#F5E8E8',cl:'#7A3A3A'},
+  {bg:'#E8F5EF',cl:'#2E6B4A'},
+  {bg:'#F5F0E8',cl:'#7A5C3A'},
+  {bg:'#EDE8F5',cl:'#5A3A7A'}
 ];
+var storeColors={},palIdx=0;
+function getStoreColor(store){
+  if(!storeColors[store])storeColors[store]=PALETTE[palIdx++%PALETTE.length];
+  return storeColors[store];
+}
 
-var unit='in', space='Drawer', allResults=[];
+var products=[],unit='in',space='Drawer',allResults=[];
+
+function parseCSV(text){
+  var lines=text.trim().split('\n');
+  var headers=lines[0].split(',').map(function(h){return h.trim().replace(/\r/,'');});
+  return lines.slice(1).filter(function(l){return l.trim();}).map(function(line){
+    var vals=[],cur='',inQ=false;
+    line=line.replace(/\r$/,'');
+    for(var i=0;i<line.length;i++){
+      var ch=line[i];
+      if(ch==='"'){inQ=!inQ;}
+      else if(ch===','&&!inQ){vals.push(cur.trim());cur='';}
+      else{cur+=ch;}
+    }
+    vals.push(cur.trim());
+    var obj={};
+    headers.forEach(function(h,i){obj[h]=(vals[i]||'');});
+    obj.width=parseFloat(obj.width)||0;
+    obj.depth=parseFloat(obj.depth)||0;
+    obj.height=parseFloat(obj.height)||0;
+    obj.soldAs=parseInt(obj.soldAs)||1;
+    return obj;
+  }).filter(function(p){return p.name&&p.store;});
+}
+
+function buildStoreButtons(prods){
+  var stores=[];
+  prods.forEach(function(p){if(stores.indexOf(p.store)<0)stores.push(p.store);});
+  document.getElementById('store-btns').innerHTML=stores.map(function(s){
+    return '<button class="sbtn active" data-store="'+s+'" onclick="toggleStore(this)">'+s+'</button>';
+  }).join('');
+}
+
+function init(){
+  fetch('products.csv')
+    .then(function(r){
+      if(!r.ok)throw new Error('not found');
+      return r.text();
+    })
+    .then(function(text){
+      products=parseCSV(text);
+      buildStoreButtons(products);
+      document.getElementById('loading').style.display='none';
+      document.getElementById('sc1-content').style.display='';
+    })
+    .catch(function(){
+      document.getElementById('loading').textContent='Could not load products. Please check your connection and reload.';
+    });
+}
 
 function pickSpace(btn){
   document.querySelectorAll('.stile').forEach(function(t){t.classList.remove('sel')});
@@ -261,7 +294,7 @@ function pickSpace(btn){
   space=btn.dataset.space;
 }
 
-function toggleStore(btn){ btn.classList.toggle('active'); }
+function toggleStore(btn){btn.classList.toggle('active');}
 
 function setUnit(u){
   unit=u;
@@ -278,25 +311,25 @@ function getDims(){
   };
 }
 
-function toIn(v){ return unit==='cm'?v/2.54:v; }
+function toIn(v){return unit==='cm'?v/2.54:v;}
 
 function updatePreview(){
-  var d=getDims(), svg=document.getElementById('psvg');
+  var d=getDims(),svg=document.getElementById('psvg');
   if(!d.w||!d.d){svg.innerHTML='';return;}
   var SW=290,SH=74;
   var bw=Math.max(Math.min(d.w*5,SW-40),50);
   var bh=Math.max(Math.min(d.d*2,SH-16),24);
-  var x0=(SW-bw)/2, y0=(SH-bh)/2;
+  var x0=(SW-bw)/2,y0=(SH-bh)/2;
   var txt=d.w+' '+unit+' wide × '+d.d+' '+unit+' deep'+(d.h?' × '+d.h+' '+unit+' tall':'');
   svg.innerHTML='<rect x="'+x0+'" y="'+y0+'" width="'+bw+'" height="'+bh+'" rx="2" fill="none" stroke="#7A8B7F" stroke-width="1.5" stroke-dasharray="6 3"/>'
     +'<text x="'+(SW/2)+'" y="'+(y0+bh/2+4)+'" text-anchor="middle" font-family="Jost,sans-serif" font-size="11" font-weight="300" fill="#ADA9A3">'+txt+'</text>';
 }
 
-
 function clearAll(){
   ['dw','dd','dh'].forEach(function(id){document.getElementById(id).value='';});
   document.getElementById('psvg').innerHTML='';
   document.querySelectorAll('.stile').forEach(function(t,i){t.classList.toggle('sel',i===0)});
+  document.querySelectorAll('.sbtn').forEach(function(b){b.classList.add('active')});
   space='Drawer';
 }
 
@@ -304,7 +337,7 @@ function findMatches(){
   var d=getDims();
   if(!d.w||!d.d){alert('Please enter at least width and depth.');return;}
   var wi=toIn(d.w),di=toIn(d.d),hi=toIn(d.h);
-  var stores=Array.from(document.querySelectorAll('.sbtn.active')).map(function(b){return b.dataset.store});
+  var stores=Array.from(document.querySelectorAll('.sbtn.active')).map(function(b){return b.dataset.store;});
   if(!stores.length){alert('Please select at least one store.');return;}
   var matched=[];
   products.forEach(function(p){
@@ -314,7 +347,7 @@ function findMatches(){
     if(stores.indexOf(p.store)<0)return;
     if(pw>wi||pd>di)return;
     if(hi>0&&ph>hi)return;
-    var aw=Math.floor(wi/pw), ad=Math.floor(di/pd);
+    var aw=Math.floor(wi/pw),ad=Math.floor(di/pd);
     var gw=+(wi-aw*pw).toFixed(2);
     var fit=gw<=wi*0.25?'perfect':'good';
     matched.push(Object.assign({},p,{pw:pw,pd:pd,ph:ph,aw:aw,ad:ad,gw:gw,fit:fit,sw:wi,sd:di,sh:hi}));
@@ -331,30 +364,27 @@ function showResults(matched,w,d,h){
   goScreen(2);
   document.getElementById('rtitle').textContent=matched.length+(matched.length===1?' bin fits':' bins fit')+' your '+space.toLowerCase();
   document.getElementById('rsub').textContent=w+' × '+d+(h?' × '+h:'')+' '+unit;
-  var stores=[...new Set(matched.map(function(p){return p.store}))];
-  var tabs=document.getElementById('ftabs');
-  tabs.innerHTML=['All'].concat(stores).map(function(s){
-    var cnt=s==='All'?matched.length:matched.filter(function(p){return p.store===s}).length;
-    var lbl=s==='The Container Store'?'Container Store':s;
-    return '<button class="ftab'+(s==='All'?' active':'')+'" onclick="filterBy(\''+s+'\')">'+lbl+' ('+cnt+')</button>';
+  var stores=[...new Set(matched.map(function(p){return p.store;}))];
+  document.getElementById('ftabs').innerHTML=['All'].concat(stores).map(function(s){
+    var cnt=s==='All'?matched.length:matched.filter(function(p){return p.store===s;}).length;
+    return '<button class="ftab'+(s==='All'?' active':'')+'" data-store="'+s+'" onclick="filterBy(\''+s+'\')">'+s+' ('+cnt+')</button>';
   }).join('');
   renderCards(matched);
 }
 
 function filterBy(store){
   document.querySelectorAll('.ftab').forEach(function(t){
-    var lbl=store==='The Container Store'?'Container':store;
-    t.classList.toggle('active',t.textContent.indexOf(lbl)===0);
+    t.classList.toggle('active',t.dataset.store===store);
   });
-  renderCards(store==='All'?allResults:allResults.filter(function(p){return p.store===store}));
+  renderCards(store==='All'?allResults:allResults.filter(function(p){return p.store===store;}));
 }
 
 function renderCards(list){
   var el=document.getElementById('rlist');
   if(!list.length){el.innerHTML='<div class="nores">No products found for these dimensions.</div>';return;}
   el.innerHTML=list.map(function(p){
-    var sc=p.store==='IKEA'?'tikea':p.store==='The Container Store'?'tcs':'ttgt';
-    var sl=p.store==='The Container Store'?'Container Store':p.store;
+    var sc=getStoreColor(p.store);
+    var storeStyle='background:'+sc.bg+';color:'+sc.cl+';';
     var fc=p.fit==='perfect'?'tperf':'tgood';
     var fl=p.fit==='perfect'?'Perfect fit':'Good fit';
     var dw=unit==='cm'?(p.pw*2.54).toFixed(1):p.pw.toFixed(2);
@@ -365,7 +395,7 @@ function renderCards(list){
       +'<div class="cbody">'
       +'<div class="ctop"><div class="cname">'+p.name+'</div><div class="cprice">'+p.price+'</div></div>'
       +'<div class="cdims">'+dw+' × '+dd+' × '+dh+' '+unit+'</div>'
-      +'<div class="ctags"><span class="tag '+sc+'">'+sl+'</span><span class="tag '+fc+'">'+fl+'</span>'+(p.material?'<span class="tag tmat">'+p.material+'</span>':'')+((p.soldAs||1)>1?'<span class="tag tset">Set of '+p.soldAs+'</span>':'')+'</div>'
+      +'<div class="ctags"><span class="tag" style="'+storeStyle+'">'+p.store+'</span><span class="tag '+fc+'">'+fl+'</span>'+(p.material?'<span class="tag tmat">'+p.material+'</span>':'')+(p.soldAs>1?'<span class="tag tset">Set of '+p.soldAs+'</span>':'')+'</div>'
       +'<div class="cnote">'+buildNote(p)+(p.url&&p.url!=='#'?'<br><a class="clink" href="'+p.url+'" target="_blank">View product →</a>':'')+'</div>'
       +'</div></div>';
   }).join('');
@@ -377,7 +407,7 @@ function buildNote(p){
   n+=p.gw>0.1?' — '+p.gw.toFixed(1)+' '+u+' to spare.':' — nearly exact width.';
   if(p.ad>1)n+=' Stack <strong>'+p.ad+' deep</strong> front to back.';
   if(p.sh&&p.ph>0){var cl=+(p.sh-p.ph).toFixed(2);if(cl>=0&&cl<0.5)n+=' Snug — '+cl+' '+u+' clearance.';else if(cl>0)n+=' '+cl+' '+u+' headroom above.';}
-  if((p.soldAs||1)>1){var sets=Math.ceil(p.aw/p.soldAs);n+=' Sold in sets of '+p.soldAs+' — buy <strong>'+sets+(sets===1?' set':' sets')+'</strong> for the width.';}
+  if(p.soldAs>1){var sets=Math.ceil(p.aw/p.soldAs);n+=' Sold in sets of '+p.soldAs+' — buy <strong>'+sets+(sets===1?' set':' sets')+'</strong> for the width.';}
   return n;
 }
 
@@ -388,7 +418,6 @@ function buildViz(p){
   var strk=perf?'#7A8B7F':'#C4B9AA';
   var tc=perf?'#7A8B7F':'#8A7055';
 
-  // top view panel
   var sc=Math.min((VW-PAD*2)/p.sw,(VH-PAD*2-14)/p.sd,5.5);
   var dw=p.sw*sc,dh=p.sd*sc,ox=(VW-dw)/2,oy=(VH-14-dh)/2;
   var bw=p.pw*sc,bd=p.pd*sc,bins='';
@@ -405,7 +434,6 @@ function buildViz(p){
     +'<text x="'+(VW/2)+'" y="'+(oy+dh+12).toFixed(1)+'" text-anchor="middle" font-family="Jost,sans-serif" font-size="8.5" fill="'+tc+'">'+fn+'</text>'
     +'</svg>';
 
-  // side view panel
   var SBH=VH-PAD*2-14,SBW=56,sx=(VW-SBW)/2,sy=PAD;
   var mh=p.sh>0?p.sh:p.ph*1.5,binH=Math.min((p.ph/mh)*SBH,SBH);
   var sv='<svg width="'+VW+'" height="'+VH+'" viewBox="0 0 '+VW+' '+VH+'">';
@@ -442,9 +470,13 @@ function goScreen(n){
   window.scrollTo(0,0);
 }
 
-function goBack(){ goScreen(1); }
+function goBack(){goScreen(1);}
 
-updatePreview();
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/sw.js');
+}
+
+init();
 </script>
 </body>
 </html>
