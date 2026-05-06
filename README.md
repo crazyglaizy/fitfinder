@@ -16,14 +16,12 @@ A consultation tool for finding storage bins that fit a measured space. Maggie m
 Both devices must be on the same WiFi:
 
 ```bash
-cd /Users/natalyaglaize/Documents/fitfinder
+cd ~/Documents/fitfinder
 python3 -m http.server 8080
 ```
 
 Find the Mac's local IP: System Settings → Wi-Fi → Details next to the network name.  
 Open `http://[local-ip]:8080` in Safari on the iPad.
-
-> **Last known IP:** 192.168.1.18 (home network — will differ on other networks)
 
 ---
 
